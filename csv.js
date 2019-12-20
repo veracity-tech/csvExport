@@ -4,6 +4,8 @@
 
 const lrsPlugin = require('./utils/plugins/lrsPlugin.js');
 
+const stringify = require(process.cwd() + '/plugins/csv/node_modules/csv-stringify')
+
 // When requiring a node_module, if the compiled LRS uses that module, it will be returned from the compiled bundle.
 // Otherwise, you'll need to make sure to npm install it alongside the plugin.
 
@@ -12,7 +14,7 @@ const express = require('express');
 module.exports = class CSVExporter extends lrsPlugin {
     constructor(lrs, dal, settings) {
         super(lrs, dal, settings);
-
+        
         // put an export link on the LRS sidebar
         this.on('lrsSidebar', (event, lrs) => ({
             text: 'CSV Export',
@@ -30,13 +32,19 @@ module.exports = class CSVExporter extends lrsPlugin {
             const Mongo = DAL.db;
             const statements = Mongo.collection('statements');
             const cursor = statements.find({});
+
+            const stringifier = stringify({
+                delimiter: ','
+            })
+            stringifier.pipe(res);
             res.setHeader('Content-Disposition', 'attachment; filename="export.csv"');
             cursor.each((err, item) => {
                 if (item == null) {
                     return res.end();
                 }
-                // This logic is lame and should be improved. Note that you might want to escape commas in string.
-                res.write(JSON.stringify(item.statement.actor.id) + ',' + JSON.stringify(item.statement.object.id) + '\n');
+
+                stringifier.write([item.statement.actor.id,item.statement.object.id])
+                
             });
         });
 
@@ -68,4 +76,4 @@ module.exports = class CSVExporter extends lrsPlugin {
     }
 };
 
-module.exports.pluginName = 'csvExport';
+module.exports.pluginName = "csvExport";
