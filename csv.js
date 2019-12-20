@@ -4,7 +4,8 @@
 
 const lrsPlugin = require('./utils/plugins/lrsPlugin.js');
 
-const stringify = require(process.cwd() + '/plugins/csv/node_modules/csv-stringify')
+//This is probably not quite what you were expecting. This relates to how we sandbox plugins
+const stringify = require(process.cwd() + '/plugins/csvExport/node_modules/csv-stringify')
 
 // When requiring a node_module, if the compiled LRS uses that module, it will be returned from the compiled bundle.
 // Otherwise, you'll need to make sure to npm install it alongside the plugin.

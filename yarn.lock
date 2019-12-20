@@ -2,6 +2,43 @@
 # yarn lockfile v1
 
 
+csv-generate@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/csv-generate/-/csv-generate-3.2.4.tgz#440dab9177339ee0676c9e5c16f50e2b3463c019"
+  integrity sha512-qNM9eqlxd53TWJeGtY1IQPj90b563Zx49eZs8e0uMyEvPgvNVmX1uZDtdzAcflB3PniuH9creAzcFOdyJ9YGvA==
+
+csv-parse@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.8.2.tgz#c717cc8d87f619dbd556d5a15222a83b6d7a6d06"
+  integrity sha512-WfYwyJepTbjS5jWAWpVskOJ8Z10231HaFw6qJhSjGrpfMPf3yuoRohlasYsP/6/3YgTQcvZpTvoUo37eaei9Fw==
+
+csv-stringify@^5.3.4:
+  version "5.3.5"
+  resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-5.3.5.tgz#fd1f4008741c77c35870705e45b6ab6bb0671f3c"
+  integrity sha512-bFbaJqz7LcwnTzdryyJuhR6Pys2deU8+z7O8N0JBnNGm7vnJVr3K0n68bhb+rlMpwCmDbUtinr8yq5I2RlPMqw==
+
+csv@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/csv/-/csv-5.3.1.tgz#8ceb548813182d3d76a13889878c6b06104927b0"
+  integrity sha512-UBO4x5EYpihikfjHUQ7dCTIgC+e9TrWWZbCcoMr935tcAZfXT1MZKHLD+aYSHs1jwW2G1uljpFfJ4XxYwQ6t5w==
+  dependencies:
+    csv-generate "^3.2.4"
+    csv-parse "^4.8.2"
+    csv-stringify "^5.3.4"
+    stream-transform "^2.0.1"
+
+mixme@^0.3.1:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/mixme/-/mixme-0.3.5.tgz#304652cdaf24a3df0487205e61ac6162c6906ddd"
+  integrity sha512-SyV9uPETRig5ZmYev0ANfiGeB+g6N2EnqqEfBbCGmmJ6MgZ3E4qv5aPbnHVdZ60KAHHXV+T3sXopdrnIXQdmjQ==
+
+stream-transform@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/stream-transform/-/stream-transform-2.0.1.tgz#112ef2b4d8b9b517f9a6994b0bf7b946fa4d51bc"
+  integrity sha512-GiTcO/rRvZP2R8WPwxmxCFP+Of1yIATuFAmYkvSLDfcD93X2WHiPwdgIqeFT2CvL1gyAsjQvu1nB6RDNQ5b2jw==
+  dependencies:
+    mixme "^0.3.1"
+
 vsc@^0.1.10:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/vsc/-/vsc-0.1.10.tgz#5aa124ae138d01c400b683a883bf214ad93f54f3"
